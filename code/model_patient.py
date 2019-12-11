@@ -39,7 +39,7 @@ def model():
     similarity = tf.reshape(similarity, [-1, 1])
 
     # concat features and similarity
-    pairwise_feature = tf.concat(1,[conv1,conv2,similarity])
+    pairwise_feature = tf.concat(1, [conv1,conv2,similarity], axis=-1)
     pairwise_feature = tf.nn.dropout(pairwise_feature, p_keep_hidden)
 
     # compute the deep similarity (y) between X1 and X2
