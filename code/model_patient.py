@@ -33,6 +33,7 @@ def model():
     similarity_matrix = init_weights([num_of_filters, num_of_filters])
     mat = tf.matmul(conv1, similarity_matrix)
     similarity = tf.reduce_sum(mat * conv2, axis=1)
+    print(similarity.shape)
     similarity = tf.reshape(similarity, [-1, 1])
 
     # concat features and similarity
