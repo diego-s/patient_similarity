@@ -32,6 +32,8 @@ def model():
     # calculate pairwise similarity with similarity_matrix
     similarity_matrix = init_weights([num_of_filters, num_of_filters])
     mat = tf.matmul(conv1, similarity_matrix)
+    print(mat.shape)
+    print(conv2.shape)
     similarity = tf.reduce_sum(mat * conv2, axis=1)
     print(similarity.shape)
     similarity = tf.reshape(similarity, [-1, 1])
