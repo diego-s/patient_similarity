@@ -37,6 +37,7 @@ def model():
     similarity = tf.reduce_sum(mat * conv2, axis=1)
     print(similarity.shape)
     similarity = tf.reshape(similarity, [-1, 1])
+    print(similarity.shape)
 
     # concat features and similarity
     pairwise_feature = tf.concat([conv1, conv2, similarity], axis=0)
